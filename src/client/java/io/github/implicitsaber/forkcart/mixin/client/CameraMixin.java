@@ -48,10 +48,4 @@ public abstract class CameraMixin {
             }
         }
     }
-
-    @Redirect(method = "setRotation", at = @At(value = "INVOKE", target = "Lorg/joml/Quaternionf;rotationYXZ(FFF)Lorg/joml/Quaternionf;"))
-    private Quaternionf forkcart$useCorrectEquation(Quaternionf instance, float angleY, float angleX, float angleZ, @Local(ordinal = 0, argsOnly = true) float yaw, @Local(ordinal = 1, argsOnly = true) float pitch) {
-        return instance.rotationYXZ((float) Math.PI - yaw * (float) (Math.PI / 180.0), -pitch * (float) (Math.PI / 180.0), 0.0F);
-    }
-
 }
